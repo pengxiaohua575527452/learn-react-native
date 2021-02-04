@@ -1,0 +1,22 @@
+{
+    "files.exclude":{
+        "**/android": false,
+        "**/__tests__": false,
+        "**/ios": false,
+        "**/node_modules": false,
+        "yarn.lock": false,
+        "package-lock.json": false,
+        ".buckconfig": false,
+        ".eslintrc.js": false,
+        ".flowconfig": false,
+        ".gitattributes": false,
+        ".gitignore": false,
+        ".prettierrc.js": false,
+        ".watchmanconfig": false,
+        "app.json": false,
+        "babel.config.js": false,
+        "metro.config.js": false,
+        "package.json": false,
+
+    }
+}

@@ -37,7 +37,6 @@ function ApprovalDetail(props){
 
     React.useEffect(()=>{
         const unsubscribe = props.navigation.addListener('focus',() => {
-            console.log('focus')
             props.onHeaderModeShow();
             props.onTabBarVisibleHide();
             unsubscribe() // 取消订阅

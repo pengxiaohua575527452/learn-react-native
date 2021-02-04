@@ -19,8 +19,8 @@ import {
 import Page1 from "@pages/noTabBar/page1/index";
 import Page2 from "@pages/noTabBar/page2/index";
 import ApprovalDetail from "@pages/noTabBar/approval-detail/approvalDetail";
-import ApprovalDetialHeader from "@components/approval-detial-header/approvalDetailHeader"
- 
+import ApprovalDetialHeader from "@components/approval-detial-header/approvalDetailHeader";
+import ApplicationForLeave from "@pages/noTabBar/application-for-leave/applicationForLeave"; 
  
 // 状态组件
 class IndexPage extends React.Component{
@@ -54,9 +54,7 @@ class IndexPage extends React.Component{
             <>
                 <Stack.Navigator
                     headerMode= {this.state.headerMode}
-                    initialRouteName="Page1"
-                   
-                    
+                    initialRouteName="ApplicationForLeave"
                 >
                     {/* 首页 */}
                     <Stack.Screen 
@@ -100,6 +98,22 @@ class IndexPage extends React.Component{
                                         onHeaderModeShow={() => { this.handleSetHandeMode({headerMode: 'screen'})}}
                                         onTabBarVisibleHide={this.props.onTabBarVisibleHide}
                                     />
+                        }}
+                    </Stack.Screen>
+
+                    {/* 请假申请页 */}
+                    <Stack.Screen
+                        name="ApplicationForLeave"
+                        options = {{
+                            header:(props)=> <ApprovalDetialHeader {...props} borderBottomWidth={0} />
+                        }}
+                    >
+                        {(props) => {
+                            return (<ApplicationForLeave 
+                                {...props}
+                                onHeaderModeShow={() => { this.handleSetHandeMode({headerMode: 'screen'})}}
+                                onTabBarVisibleHide={this.props.onTabBarVisibleHide}
+                            />)
                         }}
                     </Stack.Screen>
                 </Stack.Navigator>

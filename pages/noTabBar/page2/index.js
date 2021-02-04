@@ -4,14 +4,16 @@ import {
     Text,
     Button,
     TouchableHighlight,
-    FlatList
+    FlatList,
+    Alert
 } from "react-native";
 import styles from "./indexStyles"
 import HeaderPlaceholder from "@components/header-placeholder/index"
 import DropDownMenu from "@components/drop-down-menu/dropDownMenu";
 import DropDownMenuItem from "@components/drop-down-menu/dropDownMenuItem";
 import ApprovalListItemLeave from "@components/approval-list-item-leave/approvalListItemLeave"
-
+import ButtonFloat from "@components/button-float/buttonFloat"
+ 
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 const Material = createMaterialTopTabNavigator();
 
@@ -31,6 +33,12 @@ class PageContent extends React.Component {
             listData: [
                 { type: "leave", typeLabel:"请假", startTime:  "2020-10-10 11:11", endTime: "2020-10-10 11:11",id: '1'}, 
                 { type: "purchase", typeLabel:"采购", startTime:  "2020-10-10 11:11", endTime: "2020-10-10 11:11", id: '2'}, 
+                { type: "purchase", typeLabel:"采购", startTime:  "2020-10-10 11:11", endTime: "2020-10-10 11:11", id: '4'}, 
+                { type: "purchase", typeLabel:"采购", startTime:  "2020-10-10 11:11", endTime: "2020-10-10 11:11", id: '5'}, 
+                { type: "purchase", typeLabel:"采购", startTime:  "2020-10-10 11:11", endTime: "2020-10-10 11:11", id: '6'}, 
+                { type: "purchase", typeLabel:"采购", startTime:  "2020-10-10 11:11", endTime: "2020-10-10 11:11", id: '7'}, 
+                { type: "purchase", typeLabel:"采购", startTime:  "2020-10-10 11:11", endTime: "2020-10-10 11:11", id: '8'}, 
+                { type: "purchase", typeLabel:"采购", startTime:  "2020-10-10 11:11", endTime: "2020-10-10 11:11", id: '9'}, 
             ]
         }
     }
@@ -55,6 +63,10 @@ class PageContent extends React.Component {
     render(){
         return (
             <>
+                {/* 浮动按钮 */}
+                <__ButtonFloat {...this.props}/>
+
+                {/* 导航 */}
                 <Material.Navigator>
                     {/* 左侧屏幕 */}
                     <Material.Screen name="1">
@@ -85,6 +97,7 @@ class PageContent extends React.Component {
                                             {(()=>this.state.dropDownMenuData.map((item,index) => <DropDownMenuItem key={index} data={item}  onPressItem={() => {this.handleOnPress(item.value)}} />))()}
                                         </View>
                                     </View>
+
                                     {/* 列表内容 */}
                                     <FlatList
                                         keyExtractor={(item,index) => index.toString() }
@@ -108,7 +121,9 @@ class PageContent extends React.Component {
                                                 onPressEvent={() =>{this.handleClickFlatListItem(item)}} 
                                             />
                                         }}
-                                    />       
+                                    />  
+
+                                    
                                 </>
                             )
                         }}
@@ -155,6 +170,22 @@ function Page2 (props){
         </>
     )
     
+}
+
+// 浮动按钮
+function __ButtonFloat(props){
+    return (
+        <ButtonFloat
+            {...this.props} 
+            onPress={()=>{
+                Alert.alert('点击了+')
+            }}
+            label="+"
+            type="primary"
+            bottom = {50}
+            right={20}
+        />
+    )
 }
 
 

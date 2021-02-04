@@ -23,6 +23,21 @@ const styles = {
         width: "100%",
         height: "auto",
         overflow: 'hidden',
+    },
+
+    floatButton: {
+        position: "absolute",
+        zIndex: 99,
+        bottom: 20,
+        right: 20,
+        width: 50,
+        height: 50,
+        overflow: "hidden",
+        borderBottomRightRadius: 100,
+        borderBottomLeftRadius: 100,
+        borderTopRightRadius: 100,
+        borderTopLeftRadius: 100,
+        backgroundColor: "red"
     }
 }
 

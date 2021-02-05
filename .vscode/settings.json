@@ -1,9 +1,9 @@
 {
     "files.exclude":{
-        "**/android": true,
+        "**/android": false,
         "**/__tests__": true,
         "**/ios": true,
-        "**/node_modules": true,
+        "**/node_modules": false
         "yarn.lock": true,
         "package-lock.json": true,
         ".buckconfig": true,

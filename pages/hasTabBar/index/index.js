@@ -1,7 +1,7 @@
 // 首页配置
 
 import React from 'react';
-import {createStackNavigator} from "@react-navigation/stack";
+import {createStackNavigator, CardStyleInterpolators} from "@react-navigation/stack";
 
 const Stack = createStackNavigator()
 import {
@@ -54,7 +54,7 @@ class IndexPage extends React.Component{
             <>
                 <Stack.Navigator
                     headerMode= {this.state.headerMode}
-                    initialRouteName="ApplicationForLeave"
+                    initialRouteName="Page1"
                 >
                     {/* 首页 */}
                     <Stack.Screen 
@@ -71,6 +71,11 @@ class IndexPage extends React.Component{
                     {/* 列表页 */}
                     <Stack.Screen
                         name="Page2"
+                        options = {{
+                            header:(props) => {
+                                return <ApprovalDetialHeader {...props} borderBottomWidth={0} />
+                            }
+                        }}
                     >
                         {
                             props => <Page2 
@@ -89,7 +94,8 @@ class IndexPage extends React.Component{
                         options = {{
                             header:(props) => {
                                 return <ApprovalDetialHeader {...props} borderBottomWidth={0} />
-                            }
+                            },
+                            cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
                         }}
                     >
                         {(props) => {
@@ -105,7 +111,9 @@ class IndexPage extends React.Component{
                     <Stack.Screen
                         name="ApplicationForLeave"
                         options = {{
-                            header:(props)=> <ApprovalDetialHeader {...props} borderBottomWidth={0} />
+                            header:(props)=> <ApprovalDetialHeader {...props} borderBottomWidth={0} />,
+                            cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+
                         }}
                     >
                         {(props) => {

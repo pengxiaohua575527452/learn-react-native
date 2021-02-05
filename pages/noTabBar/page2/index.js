@@ -178,7 +178,7 @@ function __ButtonFloat(props){
         <ButtonFloat
             {...this.props} 
             onPress={()=>{
-                Alert.alert('点击了+')
+                props.navigation.navigate('Index',{screen: "ApplicationForLeave"})
             }}
             label="+"
             type="primary"

@@ -19,6 +19,24 @@ class App extends React.Component {
     // setTimeout(() => {
     //   this.setState({tabBarVisible: false})
     // }, 1000)
+    this.state = {
+      isShowLoading: true,
+      tabBarVisible: true,
+      time: 3,
+    }
+    let count = 1;
+    let id = setInterval(() => {
+      this.setState({
+        time: 3 - count++
+      })
+       ;
+
+      if(count >= 4){
+        this.setState({
+          isShowLoading: false,
+        })
+      }
+    },1000)
   }
 
   tabBArOptions = {
@@ -26,10 +44,6 @@ class App extends React.Component {
     inactiveTintColor: inactiveColor
   }
 
-  state = {
-    tabBarVisible: true
-  }
-  
 
   tabBarVisibleHide = () =>{
     this.setState({tabBarVisible: false})
@@ -40,49 +54,72 @@ class App extends React.Component {
   }
 
   render(){
-    return (
-      <>
-        <StatusBar barStyle="dark-content" translucent={true}  backgroundColor="rgba(0,0,0,0)" ></StatusBar>
-        <NavigationContainer>
-          <Tab.Navigator
-            tabBarOptions={this.tabBArOptions}
+
+    if(this.state.isShowLoading){
+      return (
+        <>
+          <StatusBar barStyle="dark-content" translucent={true}  backgroundColor="rgba(0,0,0,0)" ></StatusBar>
+          <View
+            style={{
+              flex: 1,
+              justifyContent: 'center',
+              alignItems: 'center',
+              backgroundColor: "#eee"
+            }}
           >
-            {/* 左侧 */}
-            <Tab.Screen 
-              name="Index"
-              options={{
-                tabBarVisible: this.state.tabBarVisible,
-                tabBarIcon({focused, color, size}){
-                  return  <HomeIcon width="32" height="32" fill={focused ? activeColor : inactiveColor}/>
-                }
-              }}  
+            <Text>Loading...</Text>
+          <Text>{this.state.time}</Text>
+          </View>
+        </>
+        
+      )
+    }else{
+      return (
+        <>
+          <StatusBar barStyle="dark-content" translucent={true}  backgroundColor="rgba(0,0,0,0)" ></StatusBar>
+
+          {/* 载入动画 */}
+          <NavigationContainer>
+            <Tab.Navigator
+              tabBarOptions={this.tabBArOptions}
             >
-              {
-                props => <IndexPage 
-                          {...props} 
-                          onTabBarVisibleShow={this.tabBarVisibleShow}
-                          onTabBarVisibleHide={this.tabBarVisibleHide}
-                        />
-              }
-            </Tab.Screen>
-            
-            {/* 中间 */}
-            <Tab.Screen
-              name="Center"
-              options = {{
-                tabBarVisible: this.state.tabBarVisible,
-                tabBarIcon({focused, color, size}){
-                  return  <MyIcon width="32" height="32" fill={focused ? activeColor : inactiveColor} />
-                  // return <Text style={{color: color,fontSize: size * 0.5}}>INDEX</Text>
+              {/* 左侧 */}
+              <Tab.Screen 
+                name="Index"
+                options={{
+                  tabBarVisible: this.state.tabBarVisible,
+                  tabBarIcon({focused, color, size}){
+                    return  <HomeIcon width="32" height="32" fill={focused ? activeColor : inactiveColor}/>
+                  }
+                }}  
+              >
+                {
+                  props => <IndexPage 
+                            {...props} 
+                            onTabBarVisibleShow={this.tabBarVisibleShow}
+                            onTabBarVisibleHide={this.tabBarVisibleHide}
+                          />
                 }
-              }}
-            >
-              {props => <Text>Center</Text>}
-            </Tab.Screen>
-          </Tab.Navigator>
-        </NavigationContainer>
-      </>
-    )
+              </Tab.Screen>
+              
+              {/* 中间 */}
+              <Tab.Screen
+                name="Center"
+                options = {{
+                  tabBarVisible: this.state.tabBarVisible,
+                  tabBarIcon({focused, color, size}){
+                    return  <MyIcon width="32" height="32" fill={focused ? activeColor : inactiveColor} />
+                    // return <Text style={{color: color,fontSize: size * 0.5}}>INDEX</Text>
+                  }
+                }}
+              >
+                {props => <Text>Center</Text>}
+              </Tab.Screen>
+            </Tab.Navigator>
+          </NavigationContainer>
+        </>
+      )
+    }
   }
 }
 

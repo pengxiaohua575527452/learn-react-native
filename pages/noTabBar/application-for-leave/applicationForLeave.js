@@ -94,6 +94,7 @@ function ApplicationForLeave(props){
 
                 <Submit label="提交" onPress={handleSubmit} type="primary"/>
 
+                {/* 占位符 */}
                 <Text style={{height: 100}}></Text>
             </ScrollView>
         </KeyboardAvoidingView>

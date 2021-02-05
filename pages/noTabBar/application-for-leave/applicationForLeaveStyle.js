@@ -1,9 +1,16 @@
 import {StyleSheet} from "react-native";
 
 const styles = StyleSheet.create({
+
+    container:{
+        flex:1,
+    },
+
     ApplicationForLeave_comp: {
+        flex: 1,
         paddingTop: 10,
-        backgroundColor: "#eee"
+        backgroundColor: "#eee",
+        borderBottomWidth: 5,
     },
 
     ApplicationForLeave_pickStartDateCompStyle: {
@@ -18,7 +25,7 @@ const styles = StyleSheet.create({
     leaveResonsInput: {
         width: "100%",
         height: 100,
-        backgroundColor: 'yellow'
+        // backgroundColor: 'yellow'
     }
 })  
 

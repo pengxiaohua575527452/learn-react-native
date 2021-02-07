@@ -40,7 +40,7 @@ function ApprovalDetialHeader(props){
                         <Text style={[styles.goBackIconLabel]}>返回</Text>
                     </View>
                 </TouchableHighlight>
-                <Text style={[styles.screenTitle]}>详情</Text>
+                <Text style={[styles.screenTitle]}>{props.title}</Text>
                 <View style={[styles.placeHolderContainer]}>
                   
                 </View>

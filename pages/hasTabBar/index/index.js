@@ -31,7 +31,7 @@ class IndexPage extends React.Component{
     }
 
     state = {
-        headerMode: 'screen'
+        headerMode: 'float'
     }
     handlePress = () =>{
         console.log('this.props.navigation: ', this.props.navigation)
@@ -59,6 +59,9 @@ class IndexPage extends React.Component{
                     {/* 首页 */}
                     <Stack.Screen 
                         name="Page1"
+                        options = {{
+                            header: props => <></>
+                        }}
                     >
                         {props => <Page1 
                                     {...props}
@@ -73,7 +76,7 @@ class IndexPage extends React.Component{
                         name="Page2"
                         options = {{
                             header:(props) => {
-                                return <ApprovalDetialHeader {...props} borderBottomWidth={0} />
+                                return <ApprovalDetialHeader {...props} borderBottomWidth={0} title="Page2" />
                             }
                         }}
                     >
@@ -93,7 +96,7 @@ class IndexPage extends React.Component{
                         name="ApprovalDetail"
                         options = {{
                             header:(props) => {
-                                return <ApprovalDetialHeader {...props} borderBottomWidth={0} />
+                                return <ApprovalDetialHeader {...props} borderBottomWidth={0} title="approval detail" />
                             },
                             cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
                         }}
@@ -101,7 +104,7 @@ class IndexPage extends React.Component{
                         {(props) => {
                             return <ApprovalDetail 
                                         {...props} 
-                                        onHeaderModeShow={() => { this.handleSetHandeMode({headerMode: 'screen'})}}
+                                        onHeaderModeShow={() => { this.handleSetHandeMode({headerMode: 'float'})}}
                                         onTabBarVisibleHide={this.props.onTabBarVisibleHide}
                                     />
                         }}
@@ -111,7 +114,7 @@ class IndexPage extends React.Component{
                     <Stack.Screen
                         name="ApplicationForLeave"
                         options = {{
-                            header:(props)=> <ApprovalDetialHeader {...props} borderBottomWidth={0} />,
+                            header:(props)=> <ApprovalDetialHeader {...props} borderBottomWidth={0} title="application for leave" />,
                             cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
 
                         }}
@@ -119,7 +122,7 @@ class IndexPage extends React.Component{
                         {(props) => {
                             return (<ApplicationForLeave 
                                 {...props}
-                                onHeaderModeShow={() => { this.handleSetHandeMode({headerMode: 'screen'})}}
+                                onHeaderModeShow={() => { this.handleSetHandeMode({headerMode: 'float'})}}
                                 onTabBarVisibleHide={this.props.onTabBarVisibleHide}
                             />)
                         }}

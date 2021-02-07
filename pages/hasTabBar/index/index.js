@@ -26,8 +26,6 @@ import ApplicationForLeave from "@pages/noTabBar/application-for-leave/applicati
 class IndexPage extends React.Component{
     constructor(props){
         super(props)
-
-        console.log('props: ', props.onTabBarVisibleShow)
     }
 
     state = {
@@ -63,12 +61,14 @@ class IndexPage extends React.Component{
                             header: props => <></>
                         }}
                     >
-                        {props => <Page1 
-                                    {...props}
-                                    onNavigateToPage={this.handleNavigateToPage2} 
-                                    onHeaderModeHide={() => {this.handleSetHandeMode({headerMode: "float"})}} 
-                                    onTabBarVisibleShow={this.props.onTabBarVisibleShow}  
-                                />}
+                        {props => {
+                            return <Page1 
+                                {...props}
+                                onNavigateToPage={this.handleNavigateToPage2} 
+                                onHeaderModeHide={() => {this.handleSetHandeMode({headerMode: "float"})}} 
+                                onTabBarVisibleShow={this.props.onTabBarVisibleShow}  
+                            />
+                        }}
                     </Stack.Screen>
 
                     {/* 列表页 */}
@@ -76,7 +76,7 @@ class IndexPage extends React.Component{
                         name="Page2"
                         options = {{
                             header:(props) => {
-                                return <ApprovalDetialHeader {...props} borderBottomWidth={0} title="Page2" />
+                                return <ApprovalDetialHeader {...props} borderBottomWidth={0} title="审批" />
                             }
                         }}
                     >

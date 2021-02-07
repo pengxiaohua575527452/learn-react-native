@@ -7,25 +7,25 @@ import IndexPage from "./pages/hasTabBar/index/index"
 import HomeIcon from "@svgs/homeIcon" 
 import MyIcon from "@svgs/myIcon"
 import SplashScreen from 'react-native-splash-screen'
+import Css from "@static/source/css"
+
 const Tab = createBottomTabNavigator()
- 
-
-const activeColor = "#0099CC"
-const inactiveColor = "#ccc"
-
 
 class App extends React.Component {
   constructor(props){
     super(props)
-    
     this.state = {
       tabBarVisible: true,
     }
   }
 
   tabBArOptions = {
-    activeTintColor: activeColor,
-    inactiveTintColor: inactiveColor
+    activeTintColor: Css.primary,
+    inactiveTintColor: Css.fifthFC,
+    style: {
+      borderTopWidth: 0,
+      borderTopColor: Css.fifthBD,
+    }
   }
 
 
@@ -41,9 +41,7 @@ class App extends React.Component {
     SplashScreen.hide()
   }
 
-  render(){
-
-   
+  render = () =>{
     return (
       <>
         <StatusBar barStyle="dark-content" translucent={true}  backgroundColor="rgba(0,0,0,0)" ></StatusBar>
@@ -52,34 +50,37 @@ class App extends React.Component {
         <NavigationContainer>
           <Tab.Navigator
             tabBarOptions={this.tabBArOptions}
+            sceneContainerStyle ={{}}
+            screenOptions={{
+              tabBarVisible: this.state.tabBarVisible,
+            }}
           >
             {/* 左侧 */}
             <Tab.Screen 
-              name="Index"
+              name="Index" 
               options={{
-                tabBarVisible: this.state.tabBarVisible,
-                tabBarIcon({focused, color, size}){
-                  return  <HomeIcon width="32" height="32" fill={focused ? activeColor : inactiveColor}/>
+                title:"首页",
+                tabBarIcon({color,size}){
+                  return <HomeIcon fill={color}  width={32} height={32} />
                 }
               }}  
             >
-              {
-                props => <IndexPage 
+              {props =>{
+                  return <IndexPage 
                           {...props} 
                           onTabBarVisibleShow={this.tabBarVisibleShow}
                           onTabBarVisibleHide={this.tabBarVisibleHide}
                         />
-              }
+              }}
             </Tab.Screen>
             
             {/* 中间 */}
-            <Tab.Screen
-              name="Center"
-              options = {{
-                tabBarVisible: this.state.tabBarVisible,
-                tabBarIcon({focused, color, size}){
-                  return  <MyIcon width="32" height="32" fill={focused ? activeColor : inactiveColor} />
-                  // return <Text style={{color: color,fontSize: size * 0.5}}>INDEX</Text>
+            <Tab.Screen 
+              name="My" 
+              options={{
+                title:"我的",
+                tabBarIcon({color,size}){
+                  return <MyIcon fill={color} width={32} height={32} />
                 }
               }}
             >
@@ -94,3 +95,6 @@ class App extends React.Component {
 }
 
 export default App
+
+
+ 

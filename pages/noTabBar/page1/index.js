@@ -11,7 +11,7 @@ import HeaderPlaceholder from "@components/header-placeholder/index"
 import PageIcon from "@components/page-icon/index"
 import pagesIconList from "./pagesIconList"
 import Approval from "@svgs/approval" 
- 
+import Css from "@static/source/css" 
 
 
  
@@ -51,7 +51,7 @@ function Page1 (props){
                             >
                                 <>
                                     <View>
-                                        <Approval width="32" height="32" fill="#0099CC"/>
+                                        <Approval width="30" height="30" fill={Css.primary}/>
                                     </View>
                                     <Text style={styles.pageIconLabel}>{item.label}</Text>
                                 </>

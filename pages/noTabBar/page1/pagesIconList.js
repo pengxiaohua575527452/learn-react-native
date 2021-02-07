@@ -2,7 +2,7 @@ let pagesIconList = [
     {
         imageSource: require("@static/1.jpg"),
         navigate: "",
-        label:'TEXT',
+        label:'审批',
     },
     {
         imageSource: require("@static/1.jpg"),

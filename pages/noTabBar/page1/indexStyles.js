@@ -1,20 +1,22 @@
+import Css from "@static/source/css" 
 let styles = {
     imageContainer: {
         with: '100%',
         height: 200,
-        backgroundColor: "#ccc",
+        backgroundColor: Css.fifthBG,
         justifyContent: 'center',
         alignItems: 'center'
     },
 
     contentContainer: {
+        flex: 1,
         paddingHorizontal: 20,
         paddingVertical: 30,
         display: "flex",
         flexDirection: "row",
         flexWrap: "wrap",
         justifyContent: "flex-start",
-        alignItems: "flex-start"
+        alignItems: "flex-start",
     },
 
     pageIconContainer: {
@@ -23,12 +25,11 @@ let styles = {
         alignItems: "center",
         width: "20%",
         height: 80,
-        // backgroundColor: "#ccc"
     },
 
     pageIconLabel: {
         fontSize: 12,
-        color:"#0099CC"
+        color:Css.primary
     }
 }
 

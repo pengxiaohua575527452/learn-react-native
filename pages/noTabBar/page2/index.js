@@ -24,12 +24,21 @@ class PageContent extends React.Component {
         this.state = {
             rotateDeg : "0deg",
             dropDownMenuContainerHeight: 0,
-            dropDownMenuData:[
+            dropDownMenuData:[],
+            leftCurrnetValue:"全部审批",
+            dropdownMenuAllType: [
                 { label: "全部审批", value: "value1"},
                 { label: "请假", value: "value2"},
                 { label: "采购", value: "value3"},
             ],
-            leftCurrnetValue:"All",
+            currentState : "全部状态",
+            dropDownMenuAllState:[
+                { label: "全部状态", value: "value1"},
+                { label: "审批中", value: "2"},
+                { label: "已通过", value: "value13"},
+                { label: "已拒绝", value: "value14"},
+                { label: "已撤销", value: "value15"},
+            ],
             listData: [
                 { type: "leave", typeLabel:"请假", startTime:  "2020-10-10 11:11", endTime: "2020-10-10 11:11",id: '1'}, 
                 { type: "purchase", typeLabel:"采购", startTime:  "2020-10-10 11:11", endTime: "2020-10-10 11:11", id: '2'}, 
@@ -39,7 +48,8 @@ class PageContent extends React.Component {
                 { type: "purchase", typeLabel:"采购", startTime:  "2020-10-10 11:11", endTime: "2020-10-10 11:11", id: '7'}, 
                 { type: "purchase", typeLabel:"采购", startTime:  "2020-10-10 11:11", endTime: "2020-10-10 11:11", id: '8'}, 
                 { type: "purchase", typeLabel:"采购", startTime:  "2020-10-10 11:11", endTime: "2020-10-10 11:11", id: '9'}, 
-            ]
+            ],
+            
         }
     }
 
@@ -54,9 +64,7 @@ class PageContent extends React.Component {
 
     handleClickFlatListItem(d){
         const {index, item} = d
-        console.log('id: ', item.id)
-        console.log('type: ', item.type)
-        this.props.navigation.navigate("Index", {screen: "ApprovalDetail"})
+        this.props ? this.props.navigation.navigate("Index", {screen: "ApprovalDetail"}) : "";
     }
 
 
@@ -64,12 +72,17 @@ class PageContent extends React.Component {
         return (
             <>
                 {/* 浮动按钮 */}
-                <__ButtonFloat {...this.props}/>
+                {/* <__ButtonFloat {...this.props}/> */}
 
                 {/* 导航 */}
                 <Material.Navigator>
                     {/* 左侧屏幕 */}
-                    <Material.Screen name="1">
+                    <Material.Screen 
+                        name="PendingApproval"
+                        options= {{
+                            title: "待审批"
+                        }}    
+                    >
                         {(props)=>{
                             return(
                                 <>
@@ -80,14 +93,26 @@ class PageContent extends React.Component {
                                             onPress={() => {
                                                 this.setState({
                                                     rotateDeg: this.state.rotateDeg === "0deg" ? "180deg" : "0deg",
-                                                    dropDownMenuContainerHeight: this.state.rotateDeg === "0deg" ? 'auto' : 0
+                                                    需要区分三角额状态
+                                                    dropDownMenuContainerHeight: this.state.rotateDeg === "0deg" ? 'auto' : 0,
+                                                    dropDownMenuData: this.state.dropdownMenuAllType
                                                 })
                                             }}    
                                         >
                                             <DropDownMenu rotateDeg={this.state.rotateDeg} value={this.state.leftCurrnetValue}/>
                                         </TouchableHighlight>
-                                        <TouchableHighlight style={styles.filterItemContainer}>
-                                            <Text>Right</Text>
+                                        <TouchableHighlight 
+                                            underlayColor="none"
+                                            style={styles.filterItemContainer}
+                                            onPress={() => {
+                                                this.setState({
+                                                    rotateDeg: this.state.rotateDeg === "0deg" ? "180deg" : "0deg",
+                                                    dropDownMenuContainerHeight: this.state.rotateDeg === "0deg" ? 'auto' : 0,
+                                                    dropDownMenuData: this.state.dropDownMenuAllState
+                                                })
+                                            }}
+                                        >
+                                            <DropDownMenu rotateDeg={this.state.rotateDeg} value={this.state.currentState}/>
                                         </TouchableHighlight>
                                     </View>
 
@@ -122,27 +147,49 @@ class PageContent extends React.Component {
                                             />
                                         }}
                                     />  
-
-                                    
                                 </>
                             )
                         }}
                     </Material.Screen>
 
-                    <Material.Screen name="2">
+                    <Material.Screen 
+                        name="Approved"
+                        options= {{
+                            title: "已审批"
+                        }} 
+                    >
                         {()=>{
                             return(
                                 <>
-                                    <Text>2</Text>
+                                    <Text>已审批</Text>
                                 </>
                             )
                         }}
                     </Material.Screen>
-                    <Material.Screen name="3">
+                    <Material.Screen 
+                        name="CCMe"
+                        options= {{
+                            title: "抄送我"
+                        }}     
+                    >
                         {()=>{
                             return(
                                 <>
-                                    <Text>3</Text>
+                                    <Text>抄送我</Text>
+                                </>
+                            )
+                        }}
+                    </Material.Screen>
+                    <Material.Screen 
+                        name="Initiated"
+                        options= {{
+                            title: "已发起"
+                        }}     
+                    >
+                        {()=>{
+                            return(
+                                <>
+                                    <Text>已发起</Text>
                                 </>
                             )
                         }}
@@ -176,7 +223,7 @@ function Page2 (props){
 function __ButtonFloat(props){
     return (
         <ButtonFloat
-            {...this.props} 
+            {...props} 
             onPress={()=>{
                 props.navigation.navigate('Index',{screen: "ApplicationForLeave"})
             }}

@@ -8,6 +8,8 @@ const CommonCss = {
     content: 13,
     lightContent:11,
 
+    tabContent: 9,
+
 
     // 文本颜色
     firstFC:  "#C8CACC",
@@ -18,10 +20,11 @@ const CommonCss = {
 
     //  背景颜色 从浅色到深色
     firstBG:  "#F7F9FA",
-    secondBG: "#EDEFF0",
+    secondBG: "#F2F4F5",
     thridBG:  "#EDEFF0",
     fourthBG: "#E8EAEB",
     fifthBG: "#E3E5E6",
+    primaryBG: "#CCEFFF",
 
 
     // 边框颜色
@@ -31,17 +34,16 @@ const CommonCss = {
     fourthBD: "#DCDFE0",
     fifthBD: "#D7DADB",
 
-
-
     // 彩色
     primary: "#3BC1FF", // 蓝色 - 中间
     deepPrimary: "#174D66",
     danger: '#FF5233',
     white: "#ffffff",
 
+    green: "#53BA0F",
 
-    activeColor : "#0099CC",
-    inactiveColor :"#ccc"
+    // 尺寸
+    textMenuItemHeight: 50
 }
 
 export default CommonCss

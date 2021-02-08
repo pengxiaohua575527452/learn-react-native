@@ -1,9 +1,8 @@
 import {StyleSheet} from "react-native";
+import Css from "@static/source/css" 
 
-let borderColor = "#ccc"
 let borderWidth = 1
 let height = 30
-let fontSize = 12
  
 
 
@@ -19,13 +18,13 @@ const styles = StyleSheet.create({
         height: height,
         backgroundColor: "#fff",
         borderTopWidth: borderWidth,
-        borderTopColor: borderColor,
+        borderTopColor: Css.fourthBG,
         borderBottomWidth: borderWidth,
-        borderBottomColor: borderColor,
+        borderBottomColor: Css.fourthBG,
         borderLeftWidth: borderWidth,
-        borderLeftColor: borderColor,
+        borderLeftColor: Css.fourthBG,
         borderRightWidth: borderWidth,
-        borderRightColor: borderColor,
+        borderRightColor: Css.fourthBG,
         borderTopLeftRadius: height / 2,
         borderTopRightRadius: height / 2,
         borderBottomLeftRadius: height / 2,
@@ -35,8 +34,8 @@ const styles = StyleSheet.create({
     label: {
         flexShrink :100,
         width: "100%",
-        fontSize: 14,
-        color: '#555'
+        fontSize: Css.content,
+        color: Css.fourthFC
     },
 
     iconContainer: {

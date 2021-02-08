@@ -1,6 +1,8 @@
 import React from "react";
 import {View, Text,Image } from "react-native";
 import styles from "./approvalDetailProcessUserInfoStyle"
+import Css from "@static/source/css" 
+import StateTab from "@components/state-tab/stateTab" 
  
 function ApprovalDetailProcessUserInfo(){
     return (
@@ -14,6 +16,7 @@ function ApprovalDetailProcessUserInfo(){
                         height: 42
                     }}
                 />
+                
                 <View style={[styles.applicantInfoTitleContainer]}>
                     <Text style={[styles.applicantInfoTitleMain]}>aaa</Text>
                     <Text style={[styles.applicantInfoTitleSub]}>bbb</Text>
@@ -28,6 +31,7 @@ function ApprovalDetailProcessUserInfo(){
                 >
                     2020-11-11 11:11
                 </Text>
+                <StateTab type="safe" label="通过"/>
             </View>
         </View>
     )

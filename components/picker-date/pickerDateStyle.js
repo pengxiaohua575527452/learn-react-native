@@ -1,5 +1,5 @@
 import {StyleSheet} from "react-native";
-
+import Css from "@static/source/css" 
 const styles = StyleSheet.create({
   compContainer: {
     width: '100%',
@@ -10,8 +10,8 @@ const styles = StyleSheet.create({
   },
 
   textStyle:{
-    fontSize:15,
-    color: '#333'
+    fontSize: Css.maiContent,
+    color: Css.fifthFC
   },
 })  
 

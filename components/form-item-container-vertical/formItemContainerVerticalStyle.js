@@ -1,4 +1,5 @@
 import {StyleSheet} from "react-native";
+import Css from "@static/source/css" 
 const styles = StyleSheet.create({
     compContainer: {
         width: "100%",
@@ -17,13 +18,11 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'flex-start',
         alignItems: "center",
-        
     },
 
     label: {
-        fontSize: 13,
-        color: "#666",
-        fontWeight: "900"
+        fontSize: Css.content,
+        color: Css.thridFC,
     },
 
     dataContainer: {

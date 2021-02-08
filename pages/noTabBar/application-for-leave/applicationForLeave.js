@@ -17,16 +17,6 @@ import LeaveReasons from "./comps/leave-reasons/leaveReasons";
 import Remark from "./comps/remark/remark";
 import Submit from "./comps/submit/submit";
 
-// function _Button(props){
-//     return (
-//         <View>
-//             <Button 
-//                 {...props}
-//             />
-//         </View>
-//     )
-// }
-
 function ApplicationForLeave(props){
   
     React.useEffect(() => {

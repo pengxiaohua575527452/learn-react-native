@@ -1,5 +1,5 @@
 import {StyleSheet} from "react-native";
-
+import Css from "@static/source/css"
 const styles = StyleSheet.create({
     compContainer: {
         width: "100%",
@@ -28,14 +28,15 @@ const styles = StyleSheet.create({
     },
 
     goBackIconLabel: {
-        color: "#555"
+        fontSize: Css.maiContent,
+        color: Css.fifthFC
     },
 
     screenTitle:{
         width: "40%",
-        fontSize: 16,
+        fontSize:  Css.subTitle,
         textAlign: 'center',
-        color: "#333"
+        color: Css.fifthFC
     },
 
     placeHolderContainer: {

@@ -11,17 +11,11 @@ const Tab = createBottomTabNavigator()
 const Stack = createStackNavigator()
 const Drawer = createDrawerNavigator()
 
-const activeColor = "#0099CC"
-const inactiveColor = "#ccc"
-
-
 class App extends React.Component {
   constructor(props){
     super(props)
     
   }
-
-   
 
   render(){
     return (

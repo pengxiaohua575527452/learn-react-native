@@ -1,4 +1,6 @@
 import { StyleSheet } from "react-native";
+import Css from "@static/source/css" 
+
 const styles = StyleSheet.create({
     applicantInfoContainer: {
         display: 'flex',
@@ -24,7 +26,6 @@ const styles = StyleSheet.create({
         borderTopLeftRadius: 100,
         borderBottomRightRadius: 100,
         borderBottomLeftRadius: 100,
-        
     },
 
     applicantInfoTitleContainer: {
@@ -34,24 +35,29 @@ const styles = StyleSheet.create({
     },
 
     applicantInfoTitleMain:{
-        fontSize: 15,
-        color: "#333"
+        fontSize: Css.maiContent,
+        color: Css.fifthFC,
     },
 
     applicantInfoTitleSub:{
-        fontSize: 13,
-        color: "#666"
+        fontSize: Css.content,
+        color: Css.fourthFC,
     },
 
 
     applicantInfoStateContainer: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'flex-end',
+        alignItems: 'center',
         paddingLeft: 10,
     },
 
     applicantInfoStateText: {
-        fontSize: 12,
+        fontSize: Css.content,
+        color: Css.fourthFC,
         paddingHorizontal: 5,
-        color: "#999"
+        
     }
 })
 

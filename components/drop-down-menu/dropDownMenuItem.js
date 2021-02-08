@@ -1,12 +1,12 @@
 import React from "react"
-import {View,Text,TouchableHighlight} from "react-native";
+import {Text,TouchableHighlight} from "react-native";
 import styles from "./dropDownMenuItemStyles"
-import CommonCss from "@static/source/css"
+import Css from "@static/source/css"
 
 function dropDownMenuItem(props){
     return(
         <TouchableHighlight 
-            underlayColor={CommonCss.activeColor}
+            underlayColor={Css.primaryBG}
             style={styles.itemContainer} 
             onPress={() => {
                 props.onPressItem()

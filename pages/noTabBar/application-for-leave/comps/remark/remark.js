@@ -34,7 +34,7 @@ class Remark extends React.Component {
                     <TextInput 
                         onFocus={this.handleTextInputOnFocuse}
                         onChangeText={this.handleOnChange}
-                        style={[styles.leaveResonsInput]} 
+                        style={[styles.input]} 
                         multiline={true}
                         value={this.state.value}
                         textAlignVertical= "top"

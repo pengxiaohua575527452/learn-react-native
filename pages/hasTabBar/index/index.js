@@ -76,7 +76,12 @@ class IndexPage extends React.Component{
                         name="Page2"
                         options = {{
                             header:(props) => {
-                                return <ApprovalDetialHeader {...props} borderBottomWidth={0} title="审批" />
+                                return <ApprovalDetialHeader 
+                                            {...props} 
+                                            borderBottomWidth={0} 
+                                            title="审批" 
+                                            goBack={()=> this.props.navigation.navigate('Index', {screen: "Page1"})}
+                                        />
                             }
                         }}
                     >
@@ -87,6 +92,7 @@ class IndexPage extends React.Component{
                                         onNavigateToPage1={this.handleNavigateToPage1}
                                         onHeaderModeShow={() => { this.handleSetHandeMode({headerMode: 'float'})}}
                                         onTabBarVisibleHide={this.props.onTabBarVisibleHide}
+                                        
                                     />
                         }
                     </Stack.Screen>
@@ -96,7 +102,11 @@ class IndexPage extends React.Component{
                         name="ApprovalDetail"
                         options = {{
                             header:(props) => {
-                                return <ApprovalDetialHeader {...props} borderBottomWidth={0} title="approval detail" />
+                                return <ApprovalDetialHeader 
+                                            {...props} 
+                                            borderBottomWidth={0} 
+                                            title="审批详情页" 
+                                        />
                             },
                             cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
                         }}
@@ -114,7 +124,7 @@ class IndexPage extends React.Component{
                     <Stack.Screen
                         name="ApplicationForLeave"
                         options = {{
-                            header:(props)=> <ApprovalDetialHeader {...props} borderBottomWidth={0} title="application for leave" />,
+                            header:(props)=> <ApprovalDetialHeader {...props} borderBottomWidth={0} title="请假申请" />,
                             cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
 
                         }}

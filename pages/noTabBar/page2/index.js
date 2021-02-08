@@ -2,10 +2,7 @@ import React from "react"
 import {
     View,
     Text,
-    Button,
-    TouchableHighlight,
     FlatList,
-    Alert
 } from "react-native";
 import styles from "./indexStyles"
 import HeaderPlaceholder from "@components/header-placeholder/index"
@@ -13,172 +10,62 @@ import DropDownMenu from "@components/drop-down-menu/dropDownMenu";
 import DropDownMenuItem from "@components/drop-down-menu/dropDownMenuItem";
 import ApprovalListItemLeave from "@components/approval-list-item-leave/approvalListItemLeave"
 import ButtonFloat from "@components/button-float/buttonFloat"
- 
+import Css from "@static/source/css" 
+import MyApprovalList from "./comps/my-approval-list/myApprovalList"
+import CCMe from "./comps/cc-me/CCMe"
+import MyInital from "./comps/my-initial/myInital"
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+
+
+
+
 const Material = createMaterialTopTabNavigator();
 
  
 class PageContent extends React.Component {
     constructor(props){
         super(props)
-        this.state = {
-            rotateDeg : "0deg",
-            dropDownMenuContainerHeight: 0,
-            dropDownMenuData:[],
-            leftCurrnetValue:"全部审批",
-            dropdownMenuAllType: [
-                { label: "全部审批", value: "value1"},
-                { label: "请假", value: "value2"},
-                { label: "采购", value: "value3"},
-            ],
-            currentState : "全部状态",
-            dropDownMenuAllState:[
-                { label: "全部状态", value: "value1"},
-                { label: "审批中", value: "2"},
-                { label: "已通过", value: "value13"},
-                { label: "已拒绝", value: "value14"},
-                { label: "已撤销", value: "value15"},
-            ],
-            listData: [
-                { type: "leave", typeLabel:"请假", startTime:  "2020-10-10 11:11", endTime: "2020-10-10 11:11",id: '1'}, 
-                { type: "purchase", typeLabel:"采购", startTime:  "2020-10-10 11:11", endTime: "2020-10-10 11:11", id: '2'}, 
-                { type: "purchase", typeLabel:"采购", startTime:  "2020-10-10 11:11", endTime: "2020-10-10 11:11", id: '4'}, 
-                { type: "purchase", typeLabel:"采购", startTime:  "2020-10-10 11:11", endTime: "2020-10-10 11:11", id: '5'}, 
-                { type: "purchase", typeLabel:"采购", startTime:  "2020-10-10 11:11", endTime: "2020-10-10 11:11", id: '6'}, 
-                { type: "purchase", typeLabel:"采购", startTime:  "2020-10-10 11:11", endTime: "2020-10-10 11:11", id: '7'}, 
-                { type: "purchase", typeLabel:"采购", startTime:  "2020-10-10 11:11", endTime: "2020-10-10 11:11", id: '8'}, 
-                { type: "purchase", typeLabel:"采购", startTime:  "2020-10-10 11:11", endTime: "2020-10-10 11:11", id: '9'}, 
-            ],
-            
-        }
     }
-
-    handleOnPress(data){
-        this.setState({
-            rotateDeg : "0deg",
-            dropDownMenuContainerHeight: 0,
-            leftCurrnetValue: data,
-           
-        })
-    }
-
-    handleClickFlatListItem(d){
-        const {index, item} = d
+    
+    jumpToDetails = (arg) => {
         this.props ? this.props.navigation.navigate("Index", {screen: "ApprovalDetail"}) : "";
     }
-
 
     render(){
         return (
             <>
                 {/* 浮动按钮 */}
-                {/* <__ButtonFloat {...this.props}/> */}
+                <__ButtonFloat {...this.props}/>
 
                 {/* 导航 */}
-                <Material.Navigator>
+                <Material.Navigator
+                    initialRouteName="PendingApproval"
+                    tabBarOptions={{
+                        activeTintColor:Css.primary,
+                        inactiveTintColor :Css.fourthFC,
+                        pressColor: Css.fifthBG,
+                        indicatorStyle : {
+                            backgroundColor: Css.primary
+                        } 
+                    }}
+                >
                     {/* 左侧屏幕 */}
                     <Material.Screen 
                         name="PendingApproval"
                         options= {{
-                            title: "待审批"
+                            title: "我审批"
                         }}    
                     >
-                        {(props)=>{
-                            return(
-                                <>
-                                    <View style={styles.filterContainer}> 
-                                        <TouchableHighlight 
-                                            underlayColor="none"
-                                            style={styles.filterItemContainer}
-                                            onPress={() => {
-                                                this.setState({
-                                                    rotateDeg: this.state.rotateDeg === "0deg" ? "180deg" : "0deg",
-                                                    需要区分三角额状态
-                                                    dropDownMenuContainerHeight: this.state.rotateDeg === "0deg" ? 'auto' : 0,
-                                                    dropDownMenuData: this.state.dropdownMenuAllType
-                                                })
-                                            }}    
-                                        >
-                                            <DropDownMenu rotateDeg={this.state.rotateDeg} value={this.state.leftCurrnetValue}/>
-                                        </TouchableHighlight>
-                                        <TouchableHighlight 
-                                            underlayColor="none"
-                                            style={styles.filterItemContainer}
-                                            onPress={() => {
-                                                this.setState({
-                                                    rotateDeg: this.state.rotateDeg === "0deg" ? "180deg" : "0deg",
-                                                    dropDownMenuContainerHeight: this.state.rotateDeg === "0deg" ? 'auto' : 0,
-                                                    dropDownMenuData: this.state.dropDownMenuAllState
-                                                })
-                                            }}
-                                        >
-                                            <DropDownMenu rotateDeg={this.state.rotateDeg} value={this.state.currentState}/>
-                                        </TouchableHighlight>
-                                    </View>
-
-                                    {/* 下拉菜单的内容 */}
-                                    <View style={{width: "100%", height: 0, overflow: 'visible'}}>
-                                        <View style={[styles.dropDownMenuContainer,{height: this.state.dropDownMenuContainerHeight}]}>
-                                            {(()=>this.state.dropDownMenuData.map((item,index) => <DropDownMenuItem key={index} data={item}  onPressItem={() => {this.handleOnPress(item.value)}} />))()}
-                                        </View>
-                                    </View>
-
-                                    {/* 列表内容 */}
-                                    <FlatList
-                                        keyExtractor={(item,index) => index.toString() }
-                                        style={{
-                                            paddingHorizontal: 20,
-                                            backgroundColor: "#fff"
-                                        }}
-                                        data={this.state.listData}
-                                        renderItem={(item)=>{ 
-                                            return <ApprovalListItemLeave
-                                                value={item.item}
-                                                titleLabel= "请假"
-                                                stateLabel="已通过"
-                                                contentProps = {[
-                                                    {labelTitle: "假期类型:", labelProp: "typeLabel"},
-                                                    {labelTitle: "开始时间:", labelProp: "startTime"},
-                                                    {labelTitle: "结束时间:", labelProp: "endTime"},
-                                                ]}
-                                                extraContent = "2020-10-10 11:11" 
-                                                style={{height: 100}} 
-                                                onPressEvent={() =>{this.handleClickFlatListItem(item)}} 
-                                            />
-                                        }}
-                                    />  
-                                </>
-                            )
-                        }}
+                        {props=> <MyApprovalList  jumpToDetails={this.jumpToDetails}/>}
                     </Material.Screen>
-
-                    <Material.Screen 
-                        name="Approved"
-                        options= {{
-                            title: "已审批"
-                        }} 
-                    >
-                        {()=>{
-                            return(
-                                <>
-                                    <Text>已审批</Text>
-                                </>
-                            )
-                        }}
-                    </Material.Screen>
+                  
                     <Material.Screen 
                         name="CCMe"
                         options= {{
                             title: "抄送我"
                         }}     
                     >
-                        {()=>{
-                            return(
-                                <>
-                                    <Text>抄送我</Text>
-                                </>
-                            )
-                        }}
+                        {props => <CCMe  jumpToDetails={this.jumpToDetails}/>}
                     </Material.Screen>
                     <Material.Screen 
                         name="Initiated"
@@ -186,13 +73,7 @@ class PageContent extends React.Component {
                             title: "已发起"
                         }}     
                     >
-                        {()=>{
-                            return(
-                                <>
-                                    <Text>已发起</Text>
-                                </>
-                            )
-                        }}
+                        {props=><MyInital jumpToDetails={this.jumpToDetails}/>}
                     </Material.Screen>
                 </Material.Navigator>
             </>

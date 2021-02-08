@@ -1,21 +1,21 @@
 import React from "react";
 import {View, Text, TouchableOpacity } from "react-native";
 import styles from "./buttonFloatStyle";
-
+import Css from "@static/source/css" 
 
 function ButtonFloat(props){
 
-    let backgroundColor = "#0099CC"
-    let color = "#333"
-    let bottom = props.bottom ? props.bottom : 50;
+    let backgroundColor = Css.primary;
+    let color =  Css.white
+    let bottom = props.bottom ? props.bottom : 80;
     let right = props.right ? props.right : 20;
 
     if(props.type === 'primary'){
-        backgroundColor = "#0099CC";
-        color = "#fff"
+        backgroundColor = Css.primary;
+        color = Css.white
     }else if(props.type === "default"){
-        backgroundColor = "#CCC";
-        color = "#333"
+        backgroundColor =  Css.fifthBG;
+        color = Css.fifthFC
     }else{
 
     }

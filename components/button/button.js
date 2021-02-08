@@ -1,18 +1,18 @@
 import React from "react";
 import {View, Text, TouchableOpacity } from "react-native";
 import styles from "./buttonStyle";
-
+import Css from "@static/source/css" 
 
 function Button(props){
 
-    let backgroundColor = "#0099CC"
-    let color = "#333"
+    let backgroundColor = Css.primary
+    let color = Css.white
     if(props.type === 'primary'){
-        backgroundColor = "#0099CC";
-        color = "#fff"
+        backgroundColor = Css.primary;
+        color = Css.white
     }else if(props.type === "default"){
-        backgroundColor = "#CCC";
-        color = "#333"
+        backgroundColor = Css.fifthBG;
+        color = Css.fifthFC
     }else{
 
     }

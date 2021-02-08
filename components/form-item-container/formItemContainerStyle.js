@@ -1,4 +1,6 @@
 import {StyleSheet} from "react-native";
+import Css from "@static/source/css" 
+
 const styles = StyleSheet.create({
     compContainer: {
         width: "100%",
@@ -21,9 +23,8 @@ const styles = StyleSheet.create({
     },
 
     label: {
-        fontSize: 13,
-        color: "#666",
-        fontWeight: "900"
+        fontSize: Css.content,
+        color: Css.thridFC,
     },
 
     dataContainer: {
@@ -34,6 +35,7 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-end',
         alignItems: 'center',
         height: "100%",
+       
     },
 })
 

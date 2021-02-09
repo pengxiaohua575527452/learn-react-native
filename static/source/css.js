@@ -42,8 +42,15 @@ const CommonCss = {
 
     green: "#53BA0F",
 
+    required: "red", // 红色 必须输入的项目
+
     // 尺寸
-    textMenuItemHeight: 50
+    textMenuItemHeight: 50, // 文本列表之间的高度
+    pagePaddingHorizontal: 16,// 页面左右两边的间距
+    pageContentItemSplitSpaceMin: 6, // 页面垂直项之间的空间
+    pageContentItemSplitSpaceMax: 9,  // 页面垂直项之间的空间
+    gapBetweenButtonAndNonButton: 100, // 页面中按钮同非按钮之间的空间
+
 }
 
 export default CommonCss

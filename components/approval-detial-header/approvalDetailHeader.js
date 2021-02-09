@@ -24,7 +24,6 @@ function ApprovalDetialHeader(props){
                 {
                     paddingTop:props.insets.top,
                     borderBottomWidth: props.borderBottomWidth,
-                    borderBottomColor: "#ccc"
                 },
                 props.style
             ]}

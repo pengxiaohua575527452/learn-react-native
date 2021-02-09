@@ -4,9 +4,11 @@ import { NavigationContainer,useFocusEffect } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createStackNavigator } from "@react-navigation/stack";
 import IndexPage from "./pages/hasTabBar/index/index"
+import MyProfile from "@pages/hasTabBar/my-profile/myProfile"
 import HomeIcon from "@svgs/homeIcon" 
 import MyIcon from "@svgs/myIcon"
 import SplashScreen from 'react-native-splash-screen'
+ 
 import Css from "@static/source/css"
 
 const Tab = createBottomTabNavigator()
@@ -15,7 +17,7 @@ class App extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      tabBarVisible: true,
+      tabBarVisible: false,
     }
   }
 
@@ -50,6 +52,7 @@ class App extends React.Component {
         <NavigationContainer>
           <Tab.Navigator
             tabBarOptions={this.tabBArOptions}
+            initialRouteName="Index"
             sceneContainerStyle ={{}}
             screenOptions={{
               tabBarVisible: this.state.tabBarVisible,
@@ -84,7 +87,7 @@ class App extends React.Component {
                 }
               }}
             >
-              {props => <Text>Center</Text>}
+              {props => <MyProfile {...props}/>}
             </Tab.Screen>
           </Tab.Navigator>
         </NavigationContainer>

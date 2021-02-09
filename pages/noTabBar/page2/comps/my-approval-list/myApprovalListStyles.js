@@ -1,7 +1,7 @@
 import Css from "@static/source/css" 
 const styles = {
     flatList: {
-        paddingHorizontal: 20,
+        paddingHorizontal: Css.pagePaddingHorizontal,
         backgroundColor: Css.thridBG
     },
 

@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
      },
 
      label: {
-          paddingHorizontal: 10,
+          paddingHorizontal: Css.pagePaddingHorizontal,
           width: "100%",
           height: "100%",
           lineHeight:  Css.textMenuItemHeight - 2,

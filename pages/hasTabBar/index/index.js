@@ -21,7 +21,8 @@ import Page2 from "@pages/noTabBar/page2/index";
 import ApprovalDetail from "@pages/noTabBar/approval-detail/approvalDetail";
 import ApprovalDetialHeader from "@components/approval-detial-header/approvalDetailHeader";
 import ApplicationForLeave from "@pages/noTabBar/application-for-leave/applicationForLeave"; 
- 
+import ApplicationForPurchase from "@pages/noTabBar/application-for-purchase/applicationForPurchase";
+
 // 状态组件
 class IndexPage extends React.Component{
     constructor(props){
@@ -52,7 +53,7 @@ class IndexPage extends React.Component{
             <>
                 <Stack.Navigator
                     headerMode= {this.state.headerMode}
-                    initialRouteName="Page1"
+                    initialRouteName="Page2"
                 >
                     {/* 首页 */}
                     <Stack.Screen 
@@ -96,7 +97,7 @@ class IndexPage extends React.Component{
                                     />
                         }
                     </Stack.Screen>
-                    {/* scene.descriptor.options.headerStyle */}
+                   
                     {/* 详情页 */}
                     <Stack.Screen
                         name="ApprovalDetail"
@@ -126,7 +127,6 @@ class IndexPage extends React.Component{
                         options = {{
                             header:(props)=> <ApprovalDetialHeader {...props} borderBottomWidth={0} title="请假申请" />,
                             cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
-
                         }}
                     >
                         {(props) => {
@@ -137,6 +137,23 @@ class IndexPage extends React.Component{
                             />)
                         }}
                     </Stack.Screen>
+
+                    {/* 采购申请页 */}
+                    <Stack.Screen
+                        name="ApplicationForPurchase"
+                        options = {{
+                            header:(props)=> <ApprovalDetialHeader {...props} borderBottomWidth={1} title="采购申请" />,
+                            cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+                        }}
+                    >
+                        {props => {
+                            return <ApplicationForPurchase 
+                                        {...props} 
+                                    />
+                        }}
+                    </Stack.Screen>
+
+                    
                 </Stack.Navigator>
                 
             </>

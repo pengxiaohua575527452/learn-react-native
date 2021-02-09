@@ -11,6 +11,7 @@ function FormItemContainerVertial(props){
         <View style={[styles.compContainer]}>
             <View style={styles.labelContainer}>
                 <Text style={styles.label}>{props.label}</Text>
+                <Text style={styles.required}>{props.required ? "*" : ''}</Text>
             </View>
             <View style={styles.dataContainer}>
                 {props.children}

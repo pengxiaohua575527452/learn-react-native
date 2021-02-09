@@ -11,11 +11,8 @@ import { createIconSetFromFontello } from "react-native-vector-icons";
  * 
  * import PickerTime, {getCurrentTime} from "@components/picker-time/pickerTime" 
  * <PickerTime 
- *  compStyle={styleObj} 
- *  textStyle={styleObj} 
  *  currentTime="18:18" 
  *  updateCurrentTime={(time) =>{}}}
- *  {...props}
  * />
  * @returns
  */
@@ -38,11 +35,12 @@ function PickerTime(props){
             pickerData: _createTime(),
             pickerFontColor: [33, 33 ,33, 1],
             onPickerConfirm: (pickedValue, pickedIndex) => {
-                let h = pickedValue[0].slice(0,pickedValue[1].length-1)
+                let h = pickedValue[0].slice(0,pickedValue[0].length-1)
                 let m = pickedValue[1].slice(0,pickedValue[1].length-1)
+                h = h.length === 1 ? "0" + h : h;
+                m = m.length === 1 ? "0" + m : m;
                 let str = h+':'+m;
                 props.updateCurrentTime(str)
-                
             },
             onPickerCancel: (pickedValue, pickedIndex) => {
                 console.log('date', pickedValue, pickedIndex);

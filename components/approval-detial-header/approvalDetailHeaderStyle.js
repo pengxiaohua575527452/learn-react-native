@@ -3,7 +3,8 @@ import Css from "@static/source/css"
 const styles = StyleSheet.create({
     compContainer: {
         width: "100%",
-        backgroundColor: "#fff"
+        backgroundColor: "#fff",
+        borderBottomColor: Css.fifthBD
     },
 
     goBackContainer: {
@@ -42,12 +43,7 @@ const styles = StyleSheet.create({
     placeHolderContainer: {
         width: '30%',
         height: "100%",
-        // backgroundColor: 'red'
     }
-
-
-    
-
     
 })
 

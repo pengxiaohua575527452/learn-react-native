@@ -10,7 +10,7 @@ let styles = {
 
     contentContainer: {
         flex: 1,
-        paddingHorizontal: 20,
+        paddingHorizontal: Css.pagePaddingHorizontal,
         paddingVertical: 30,
         display: "flex",
         flexDirection: "row",

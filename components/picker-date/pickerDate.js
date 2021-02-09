@@ -10,16 +10,14 @@ import Picker from 'react-native-picker';
  * 
  * import PickerTime, {getCurrentDate} from "@components/picker-time/pickerTime" 
  * <PickerTime 
- *  compStyle={styleObj} 
- *  textStyle={styleObj} 
  *  currentDate="2020-02-02" 
  *  updateCurrentDate={(date) =>{}}}
- *  {...props}
  * />
  * @returns
  */
 
 function PickerDate(props){
+    
     //打开日期选择 视图
     function _showDatePicker(){
         var year = ''
@@ -90,7 +88,7 @@ export function getCurrentDate(){
 function _createDateData(){
     let date = [];
     var currDate = new Date()
-    var year = currDate.getFullYear()
+    var year = currDate.getFullYear()+5
     var month = currDate.getMonth()+1
     for(let i=2020;i<=year;i++){
         let month = [];

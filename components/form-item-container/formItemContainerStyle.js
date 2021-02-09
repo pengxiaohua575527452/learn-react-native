@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: "space-between",
         alignItems: 'center',
-        paddingHorizontal: 10,
+        paddingHorizontal: Css.pagePaddingHorizontal,
         backgroundColor: '#fff'
     },
 
@@ -26,6 +26,12 @@ const styles = StyleSheet.create({
         fontSize: Css.content,
         color: Css.thridFC,
     },
+
+    required: {
+        marginLeft: 5,
+        fontSize: Css.mainTitle,
+        color: Css.required
+    }, 
 
     dataContainer: {
         width: "100%",

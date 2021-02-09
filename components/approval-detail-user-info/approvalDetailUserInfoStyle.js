@@ -1,11 +1,12 @@
 import { StyleSheet } from "react-native";
+import Css from "@static/source/css";
 const styles = StyleSheet.create({
     applicantInfoContainer: {
         display: 'flex',
         flexDirection: 'row',
         justifyContent: "space-between",
         paddingVertical: 10,
-        paddingHorizontal: 10,
+        paddingHorizontal: Css.pagePaddingHorizontal,
         width: "100%",
         height: 62,
         flexGrow: 0,

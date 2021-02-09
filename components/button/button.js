@@ -2,6 +2,16 @@ import React from "react";
 import {View, Text, TouchableOpacity } from "react-native";
 import styles from "./buttonStyle";
 import Css from "@static/source/css" 
+/**
+ * 
+import Buttom from "@components/button/button"
+使用说明 
+@param {*} props 
+
+
+
+ */
+
 
 function Button(props){
 

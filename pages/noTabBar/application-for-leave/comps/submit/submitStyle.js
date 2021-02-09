@@ -1,8 +1,8 @@
 import {StyleSheet} from "react-native";
-
+import Css from "@static/source/css";
 let styles = StyleSheet.create({
     compContainer: {
-        paddingHorizontal: 10,
+        paddingHorizontal: Css.pagePaddingHorizontal,
         marginTop: 50,
     }
 })

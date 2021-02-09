@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
         display: "flex",
         flexDirection: "column",
         width: "100%",
-        paddingHorizontal: 10,
+        paddingHorizontal: Css.pagePaddingHorizontal,
         paddingVertical: 10,
         marginTop:20,
         backgroundColor: Css.white,
